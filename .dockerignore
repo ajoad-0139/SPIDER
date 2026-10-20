@@ -1,4 +1,13 @@
 venv/
+.venv/
 .git/
 __pycache__/
+*.pyc
 output/
+build/
+dbs/
+eggs/
+logs/
+twistd.pid
+*.egg-info/
+crawl.log
