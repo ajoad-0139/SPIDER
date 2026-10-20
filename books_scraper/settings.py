@@ -32,3 +32,25 @@ ITEM_PIPELINES = {
     "books_scraper.pipelines.CleaningPipeline": 300,
     "books_scraper.pipelines.SQLitePipeline": 400,
 }
+
+FEED_EXPORT_FIELDS = [
+    "title", "price", "availability", "product_url", "image_url", "category",
+]
+
+FEEDS = {
+    os.path.join(OUTPUT_DIR, "books.json"): {
+        "format": "json",
+        "indent": 2,
+        "overwrite": True,
+    },
+    os.path.join(OUTPUT_DIR, "books.csv"): {
+        "format": "csv",
+        "overwrite": True,
+    },
+    os.path.join(OUTPUT_DIR, "books.xml"): {
+        "format": "xml",
+        "item_element": "book",
+        "root_element": "books",
+        "overwrite": True,
+    },
+}
