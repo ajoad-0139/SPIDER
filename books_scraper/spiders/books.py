@@ -11,7 +11,7 @@ class BooksSpider(scrapy.Spider):
     start_urls = ["https://books.toscrape.com/index.html"]
 
     @classmethod
-    def from_crawler(self, crawler, *args, **kwargs):
+    def from_crawler(cls, crawler, *args, **kwargs):
         spider = super().from_crawler(crawler, *args, **kwargs)
         settings = crawler.settings
         spider.category_min = settings.getint("CATEGORY_SAMPLE_MIN", 5)

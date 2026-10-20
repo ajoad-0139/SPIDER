@@ -8,3 +8,12 @@ def clean_text(value):
     return re.sub(r"\s+", " ", str(value)).strip()
 
 
+def parse_price(value):
+    cleaned = re.sub(r"[^\d.]", "", str(value or ""))
+    if not cleaned:
+        raise ValueError(f"Cannot parse price from {value!r}")
+    return float(cleaned)
+
+
+def parse_availability(value):
+    return clean_text(value).lower().startswith("in stock")
