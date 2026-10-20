@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+output/*
+!output/.gitkeep
+dbs/
+eggs/
+logs/
+twistd.pid
+*.egg-info/
+build/
+project.egg-info/venv/
