@@ -29,12 +29,15 @@ class BooksSpider(scrapy.Spider):
             categories.append((name, url))
 
         self.logger.info("Discovered %d categories", len(categories))
+        if not categories:
+            self.logger.error("No categories found - the site layout may have changed")
+            return
         sample_size = min( self.random_generator.randint(self.category_min, self.category_max), len(categories))
         selected = self.random_generator.sample(categories, sample_size)
         self.logger.info("Selected %d categories: %s", sample_size, [name for name, _ in selected])
 
         for name, url in selected:
-            yield scrapy.Request( url, callback=self.parse_category, cb_kwargs={"category": name, "book_urls": []})
+            yield scrapy.Request( url, callback=self.parse_category, errback=self.on_error, cb_kwargs={"category": name, "book_urls": []})
 
     def parse_category(self, response, category, book_urls):
         for href in response.css("article.product_pod h3 a::attr(href)").getall():
@@ -43,7 +46,7 @@ class BooksSpider(scrapy.Spider):
 
         next_page = response.css("li.next a::attr(href)").get()
         if next_page:
-            yield response.follow( next_page, callback=self.parse_category, cb_kwargs={"category": category, "book_urls": book_urls})
+            yield response.follow( next_page, callback=self.parse_category, errback=self.on_error, cb_kwargs={"category": category, "book_urls": book_urls})
             return
 
         count = min(self.books_per_category, len(book_urls))
@@ -51,7 +54,7 @@ class BooksSpider(scrapy.Spider):
 
         sampled = self.random_generator.sample(book_urls, count)
         for url in sampled:
-            yield scrapy.Request( url, callback=self.parse_book, cb_kwargs={"category": category})
+            yield scrapy.Request( url, callback=self.parse_book, errback=self.on_error, cb_kwargs={"category": category})
 
     def parse_book(self, response, category):
         item = BookItem()
@@ -63,3 +66,6 @@ class BooksSpider(scrapy.Spider):
         item["category"] = category
         self.logger.info("Scraped book: %s", item["title"])
         yield item
+
+    def on_error(self, failure):
+        self.logger.error("Request failed: %s - %s", failure.request.url, repr(failure.value))
