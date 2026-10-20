@@ -1,0 +1,156 @@
+2026-10-20 15:26:45 [scrapy.utils.log] INFO: Scrapy 2.19.0 started (bot: books_scraper)
+2026-10-20 15:26:45 [scrapy.utils.log] INFO: Versions:
+{'lxml': '6.1.3',
+ 'libxml2': '2.14.6',
+ 'cssselect': '1.6.0',
+ 'parsel': '1.12.1',
+ 'w3lib': '2.5.0',
+ 'Twisted': '26.4.0',
+ 'Python': '3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]',
+ 'pyOpenSSL': '26.4.0 (OpenSSL 4.0.3 29 Sep 2026)',
+ 'cryptography': '50.0.2',
+ 'Platform': 'Linux-7.0.0-38-generic-x86_64-with-glibc2.39'}
+2026-10-20 15:26:45 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-10-20 15:26:45 [scrapy.extensions.telnet] INFO: Telnet Password: 4b87f0ac66798653
+2026-10-20 15:26:45 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.logcount.LogCount',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.remote_control.RemoteControl']
+2026-10-20 15:26:45 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'books_scraper',
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 1,
+ 'DOWNLOAD_DELAY': 0.25,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'FEED_EXPORT_FIELDS': ['title',
+                        'price',
+                        'availability',
+                        'product_url',
+                        'image_url',
+                        'category'],
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'books_scraper.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['books_scraper.spiders']}
+2026-10-20 15:26:45 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-10-20 15:26:45 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware',
+ 'scrapy.spidermiddlewares.metacopy.MetaCopyDetectionMiddleware']
+2026-10-20 15:26:45 [scrapy.middleware] INFO: Enabled item pipelines:
+['books_scraper.pipelines.CleaningPipeline',
+ 'books_scraper.pipelines.SQLitePipeline']
+2026-10-20 15:26:45 [py.warnings] WARNING: /home/w3e53/Ajoad/scraping/spider/venv/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:66: ScrapyDeprecationWarning: CleaningPipeline.process_item() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+  self._check_mw_method_spider_arg(mw.process_item)
+
+2026-10-20 15:26:45 [py.warnings] WARNING: /home/w3e53/Ajoad/scraping/spider/venv/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:60: ScrapyDeprecationWarning: SQLitePipeline.open_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+  self._check_mw_method_spider_arg(mw.open_spider)
+
+2026-10-20 15:26:45 [py.warnings] WARNING: /home/w3e53/Ajoad/scraping/spider/venv/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:63: ScrapyDeprecationWarning: SQLitePipeline.close_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+  self._check_mw_method_spider_arg(mw.close_spider)
+
+2026-10-20 15:26:45 [py.warnings] WARNING: /home/w3e53/Ajoad/scraping/spider/venv/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:66: ScrapyDeprecationWarning: SQLitePipeline.process_item() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+  self._check_mw_method_spider_arg(mw.process_item)
+
+2026-10-20 15:26:45 [scrapy.core.engine] INFO: Spider opened
+2026-10-20 15:26:45 [books_scraper.pipelines] INFO: SQLite database ready at /home/w3e53/Ajoad/scraping/spider/output/books.db
+2026-10-20 15:26:45 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-10-20 15:26:45 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6024
+2026-10-20 15:26:45 [scrapy.extensions.remote_control] INFO: Remote control HTTP server listening on port 33591 (job 70423-627ab15c6be843c8b7b0a1814a5c5217)
+2026-10-20 15:26:47 [books] INFO: Discovered 50 categories
+2026-10-20 15:26:47 [books] INFO: Selected 5 categories: ['Short Stories', 'Academic', 'Horror', 'Default', 'Childrens']
+2026-10-20 15:26:48 [books] INFO: Category 'Horror': 17 books found, sampling 5
+2026-10-20 15:26:48 [books] INFO: Category 'Academic': 1 books found, sampling 1
+2026-10-20 15:26:49 [books] INFO: Category 'Short Stories': 1 books found, sampling 1
+2026-10-20 15:26:49 [books] INFO: Category 'Childrens': 29 books found, sampling 5
+2026-10-20 15:26:50 [books] INFO: Scraped book: House of Leaves
+2026-10-20 15:26:50 [books_scraper.pipelines] INFO: Cleaned item: House of Leaves
+2026-10-20 15:26:50 [books] INFO: Scraped book: The Loney
+2026-10-20 15:26:50 [books_scraper.pipelines] INFO: Cleaned item: The Loney
+2026-10-20 15:26:50 [books] INFO: Scraped book: Doctor Sleep (The Shining #2)
+2026-10-20 15:26:50 [books_scraper.pipelines] INFO: Cleaned item: Doctor Sleep (The Shining #2)
+2026-10-20 15:26:51 [books] INFO: Scraped book: Pet Sematary
+2026-10-20 15:26:51 [books_scraper.pipelines] INFO: Cleaned item: Pet Sematary
+2026-10-20 15:26:51 [books] INFO: Scraped book: Misery
+2026-10-20 15:26:51 [books_scraper.pipelines] INFO: Cleaned item: Misery
+2026-10-20 15:26:51 [books] INFO: Scraped book: Logan Kade (Fallen Crest High #5.5)
+2026-10-20 15:26:51 [books_scraper.pipelines] INFO: Cleaned item: Logan Kade (Fallen Crest High #5.5)
+2026-10-20 15:26:52 [books] INFO: Scraped book: The Grownup
+2026-10-20 15:26:52 [books_scraper.pipelines] INFO: Cleaned item: The Grownup
+2026-10-20 15:26:52 [books] INFO: Scraped book: Shrunken Treasures: Literary Classics, Short, Sweet, and Silly
+2026-10-20 15:26:52 [books_scraper.pipelines] INFO: Cleaned item: Shrunken Treasures: Literary Classics, Short, Sweet, and Silly
+2026-10-20 15:26:52 [books] INFO: Scraped book: The Whale
+2026-10-20 15:26:52 [books_scraper.pipelines] INFO: Cleaned item: The Whale
+2026-10-20 15:26:53 [books] INFO: Scraped book: Red: The True Story of Red Riding Hood
+2026-10-20 15:26:53 [books_scraper.pipelines] INFO: Cleaned item: Red: The True Story of Red Riding Hood
+2026-10-20 15:26:53 [books] INFO: Scraped book: The Secret of Dreadwillow Carse
+2026-10-20 15:26:53 [books_scraper.pipelines] INFO: Cleaned item: The Secret of Dreadwillow Carse
+2026-10-20 15:26:53 [books] INFO: Scraped book: Green Eggs and Ham (Beginner Books B-16)
+2026-10-20 15:26:53 [books_scraper.pipelines] INFO: Cleaned item: Green Eggs and Ham (Beginner Books B-16)
+2026-10-20 15:26:55 [books] INFO: Category 'Default': 152 books found, sampling 5
+2026-10-20 15:26:56 [books] INFO: Scraped book: The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics
+2026-10-20 15:26:56 [books_scraper.pipelines] INFO: Cleaned item: The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics
+2026-10-20 15:26:56 [books] INFO: Scraped book: If I Stay (If I Stay #1)
+2026-10-20 15:26:56 [books_scraper.pipelines] INFO: Cleaned item: If I Stay (If I Stay #1)
+2026-10-20 15:26:56 [books] INFO: Scraped book: The Year of Living Biblically: One Man's Humble Quest to Follow the Bible as Literally as Possible
+2026-10-20 15:26:56 [books_scraper.pipelines] INFO: Cleaned item: The Year of Living Biblically: One Man's Humble Quest to Follow the Bible as Literally as Possible
+2026-10-20 15:26:57 [books] INFO: Scraped book: Fool Me Once
+2026-10-20 15:26:57 [books_scraper.pipelines] INFO: Cleaned item: Fool Me Once
+2026-10-20 15:26:57 [books] INFO: Scraped book: John Vassos: Industrial Design for Modern Life
+2026-10-20 15:26:57 [books_scraper.pipelines] INFO: Cleaned item: John Vassos: Industrial Design for Modern Life
+2026-10-20 15:26:57 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-10-20 15:26:57 [books_scraper.pipelines] INFO: SQLite connection closed
+2026-10-20 15:26:57 [scrapy.extensions.feedexport] INFO: Stored json feed (17 items) in: /home/w3e53/Ajoad/scraping/spider/output/books.json
+2026-10-20 15:26:57 [scrapy.extensions.feedexport] INFO: Stored csv feed (17 items) in: /home/w3e53/Ajoad/scraping/spider/output/books.csv
+2026-10-20 15:26:57 [scrapy.extensions.feedexport] INFO: Stored xml feed (17 items) in: /home/w3e53/Ajoad/scraping/spider/output/books.xml
+2026-10-20 15:26:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 11309,
+ 'downloader/request_count': 32,
+ 'downloader/request_method_count/GET': 32,
+ 'downloader/response_bytes': 133905,
+ 'downloader/response_count': 32,
+ 'downloader/response_status_count/200': 31,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 11.944028679998155,
+ 'feedexport/success_count/FileFeedStorage': 3,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 10, 20, 9, 26, 57, 491526, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 940782,
+ 'httpcompression/response_count': 32,
+ 'item_scraped_count': 17,
+ 'items_per_minute': 92.72727272727273,
+ 'log_count/INFO': 46,
+ 'memusage/max': 81268736,
+ 'memusage/startup': 81268736,
+ 'request_depth_max': 9,
+ 'response_received_count': 32,
+ 'responses_per_minute': 174.54545454545456,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 31,
+ 'scheduler/dequeued/memory': 31,
+ 'scheduler/enqueued': 31,
+ 'scheduler/enqueued/memory': 31,
+ 'start_time': datetime.datetime(2026, 10, 20, 9, 26, 45, 547504, tzinfo=datetime.timezone.utc)}
+2026-10-20 15:26:57 [scrapy.core.engine] INFO: Spider closed (finished)
